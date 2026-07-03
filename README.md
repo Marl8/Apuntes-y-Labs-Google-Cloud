@@ -20,9 +20,9 @@ Esta es la presentación principal. Puedes encontrar el contenido detallado aqu�
 
 ### Laboratorios de Desafío Google Cloud Architect Certification Path
 
-* [**Ir a Desafío Cloud Run**](./Laboratorios%20de%20Desafios/Cloud%20Run.md)
-* [**Ir a Desafío Google Kurbernetes Engine - GKE**](./Laboratorios%20de%20Desafios/GKE.md)
-* [**Ir a Desafío Red segura en GCP**](./Laboratorios%20de%20Desafios/Red-segura-en-GCP.md)
-* [**Ir a Desafío Seguridad en la nube**](./Laboratorios%20de%20Desafios/Seguridad-en-la-nube.md)
-* [**Ir a Desafío Terraform**](./Laboratorios%20de%20Desafios/Terraform.md)
-* [**Ir a Desafío Load Balancer**](./Laboratorios%20de%20Desafios/load-balancer.md)
+* [**Ir a Desafío Cloud Run**](./Laboratorios-de-Desafios/Cloud%20Run.md)
+* [**Ir a Desafío Google Kurbernetes Engine - GKE**](./Laboratorios-de-Desafios/GKE.md)
+* [**Ir a Desafío Red segura en GCP**](./Laboratorios-de-Desafios/Red-segura-en-GCP.md)
+* [**Ir a Desafío Seguridad en la nube**](./Laboratorios-de-Desafios/Seguridad-en-la-nube.md)
+* [**Ir a Desafío Terraform**](./Laboratorios-de-Desafios/Terraform.md)
+* [**Ir a Desafío Load Balancer**](./Laboratorios-de-Desafios/load-balancer.md)
