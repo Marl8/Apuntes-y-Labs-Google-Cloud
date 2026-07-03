@@ -1,4 +1,4 @@
-## Lab de Desafío Cloud Run
+## Lab de Desafío Cloud Run - GSP328
 
 ### Aprovisiona el entorno para el lab
 
