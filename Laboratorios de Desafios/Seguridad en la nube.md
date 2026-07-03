@@ -1,4 +1,4 @@
-## Lad de Desafío - Implementa los aspectos básicos de seguridad en la nube en Google Cloud
+## Lad de Desafío - Implementa los aspectos básicos de seguridad en la nube en Google Cloud - GSP342
 
 ### Sugerencias y trucos
 
