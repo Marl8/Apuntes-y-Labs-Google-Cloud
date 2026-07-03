@@ -1,4 +1,4 @@
-## Crea una Red Segura en Google Cloud - Laboratorio de Dasafío
+## Crea una Red Segura en Google Cloud - Laboratorio de Dasafío - GSP342
 
 ### Paso 1: Quitar las reglas demasiado permisivas
 
