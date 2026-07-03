@@ -1,4 +1,4 @@
-## Laboratorio de Desafío Load Balancer
+## Laboratorio de Desafío Load Balancer - GSP313
 
 ### Tarea 1: Crea varias instancias de servidor web
 
