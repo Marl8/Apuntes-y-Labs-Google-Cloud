@@ -1,4 +1,4 @@
-## Google Kubernetes Engine - GKE
+## Google Kubernetes Engine - GKE - GSP510
 
 https://partner.skills.google/paths/77/course_templates/783/labs/612117
 
