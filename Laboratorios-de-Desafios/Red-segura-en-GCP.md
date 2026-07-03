@@ -26,7 +26,7 @@ El rango de IPs oficial y exclusivo que utiliza el servicio de Identity-Aware Pr
 
 Ejecuta el siguiente comando para crear la regla de firewall:
 
-````Bash
+````bash
 gcloud compute firewall-rules create allow-ssh-from-iap-to-bastion \
     --direction=INGRESS \
     --network=lab-net \
@@ -56,7 +56,7 @@ Debes permitir que cualquiera acceda al puerto 80 de la aplicación usando la et
 
 #### Opción A: Por comando en Cloud Shell (Recomendado)
 
-````Bash
+````bash
 gcloud compute firewall-rules create allow-http-to-juice-shop \
     --direction=INGRESS \
     --action=ALLOW \
@@ -85,7 +85,7 @@ El laboratorio especifica que el origen debe ser la subred del bastión: ``acme-
 
 Ejecuta esto en Cloud Shell para ver los datos de la subred:
 
-````Bash
+````bash
 gcloud compute networks subnets describe acme-mgmt-subnet --region=us-central1
 ````
 
@@ -95,7 +95,7 @@ gcloud compute networks subnets describe acme-mgmt-subnet --region=us-central1
 
 Reemplaza [RANGO_DE_ACME_MGMT_SUBNET] por el CIDR numérico que obtuviste en el paso anterior y usa la etiqueta permit-ssh-internal-ingress-ql-808:
 
-````Bash
+````bash
 gcloud compute firewall-rules create allow-ssh-internal-to-juice-shop \
     --direction=INGRESS \
     --action=ALLOW \
@@ -114,6 +114,6 @@ gcloud compute firewall-rules create allow-ssh-internal-to-juice-shop \
 
 - Una vez dentro del terminal del bastión, conéctate de forma interna a juice-shop usando su nombre o su IP privada:
 
-```Bash
+```bash
 - gcloud compute ssh juice-shop --internal-ip
 ```

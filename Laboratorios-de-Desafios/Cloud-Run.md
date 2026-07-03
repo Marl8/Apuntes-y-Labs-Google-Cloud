@@ -41,19 +41,19 @@ En esta tarea vas a compilar el código de la API de facturación de pruebas (st
 
 - Navega al directorio del código:
 
-````Bash
+````bash
 cd ~/pet-theory/lab07/unit-api-billing
   ````  
 
 - Compila la imagen usando Cloud Build:
 
-````Bash
+````bash
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/billing-staging-api:0.1
 ````
 
 - Implementa en Cloud Run de forma sin autenticar (pública):
     
-````Bash
+````bash
 gcloud run deploy public-billing-service-664 \
     --image gcr.io/$GOOGLE_CLOUD_PROJECT/billing-staging-api:0.1 \
     --allow-unauthenticated
@@ -65,18 +65,18 @@ Ahora compilarás y desplegarás la interfaz gráfica de pruebas.
 
 - Navega al directorio del frontend:
  
-````Bash
+````bash
 cd ~/pet-theory/lab07/staging-frontend-billing
 ````
 - Compila la imagen:
 
-````Bash
+````bash
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1
 ````
 
 - Implementa en Cloud Run de forma pública:
 
-````Bash
+````bash
 gcloud run deploy frontend-staging-service-942 \
     --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-staging:0.1 \
     --allow-unauthenticated
@@ -88,25 +88,25 @@ El equipo quiere proteger la API. Primero borraremos el servicio público anteri
 
 - Elimina el servicio público anterior (es un requisito de la evaluación):
 
-````Bash
+````bash
 gcloud run services delete public-billing-service-664 --quiet
 ````
 
 - Navega al directorio correspondiente:
 
-````Bash
+````bash
 cd ~/pet-theory/lab07/staging-api-billing
 ````
 
 - Compila la nueva versión (0.2) de la imagen:
 
-````Bash
+````bash
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/billing-staging-api:0.2
 ````
 
 - Implementa en Cloud Run requiriendo autenticación (privado):
 
-````Bash
+````bash
 gcloud run deploy private-billing-service-838 \
     --image gcr.io/$GOOGLE_CLOUD_PROJECT/billing-staging-api:0.2 \
     --no-allow-unauthenticated
@@ -114,7 +114,7 @@ gcloud run deploy private-billing-service-838 \
 
 - Guarda la URL del servicio y haz una prueba de conexión (los comandos que dio el lab):
 
-````Bash
+````bash
 BILLING_URL=$(gcloud run services describe private-billing-service-838 --platform managed --region europe-west4 --format "value(status.url)")
 
 curl -X get -H "Authorization: Bearer $(gcloud auth print-identity-token)" $BILLING_URL
@@ -126,7 +126,7 @@ Vamos a preparar el entorno de producción creando una identidad propia para el 
 
   - Crea la cuenta de servicio:
 
-````Bash
+````bash
 gcloud iam service-accounts create billing-service-sa-930 \
     --display-name "Servicio de facturación de Cloud Run"
 ````
@@ -137,19 +137,19 @@ Compilaremos la API de producción y le asignaremos la cuenta de servicio que ac
 
 - Navega al directorio de producción de la API:
 
-````Bash
+````bash
 cd ~/pet-theory/lab07/prod-api-billing
 ````
 
 - Compila la imagen de producción:
 
-````Bash
+````bash
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/billing-prod-api:0.1
 ````
 
 - Implementa el servicio privado asociando la cuenta de servicio:
 
-````Bash
+````bash
 gcloud run deploy billing-prod-service-152 \
     --image gcr.io/$GOOGLE_CLOUD_PROJECT/billing-prod-api:0.1 \
     --no-allow-unauthenticated \
@@ -158,7 +158,7 @@ gcloud run deploy billing-prod-service-152 \
 
 ***Ojo: La instrucción de tu lab tiene una pequeña errata en el comando PROD_BILLING_URL provisto (reutiliza el nombre del servicio de staging). Usa este comando corregido para testearlo si lo deseas:***
     
-````Bash
+````bash
 PROD_BILLING_URL=$(gcloud run services describe billing-prod-service-152 --platform managed --region europe-west4 --format "value(status.url)")
 curl -X get -H "Authorization: Bearer $(gcloud auth print-identity-token)" $PROD_BILLING_URL
 ````
@@ -169,14 +169,14 @@ Para que el frontend de producción pueda "hablarle" a la API privada de factura
 
 - Crea la cuenta de servicio para el frontend:
 
-````Bash
+````bash
 gcloud iam service-accounts create frontend-service-sa-544 \
     --display-name "Invocador del servicio de facturación de Cloud Run"
 ````
 
 - Dar permiso a esa cuenta de servicio para invocar el servicio de facturación de producción (``billing-prod-service-152``):
     
-````Bash
+````bash
 gcloud run services add-iam-policy-binding billing-prod-service-152 \
     --member="serviceAccount:frontend-service-sa-544@$GOOGLE_CLOUD_PROJECT.iam.gserviceaccount.com" \
     --role="roles/run.invoker"
@@ -188,18 +188,18 @@ Por último, compilamos el frontend de producción y lo desplegamos públicament
 
 - Navega al directorio del frontend de producción:
     
-````Bash
+````bash
 cd ~/pet-theory/lab07/prod-frontend-billing
 ````
 - Compila la imagen:
     
-````Bash
+````bash
 gcloud builds submit --tag gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-prod:0.1
 ````
 
 - Implementa en Cloud Run de forma pública (``--allow-unauthenticated``) pero asignándole su cuenta de servicio dedicada:
     
-````Bash
+````bash
 gcloud run deploy frontend-prod-service-801 \
     --image gcr.io/$GOOGLE_CLOUD_PROJECT/frontend-prod:0.1 \
     --allow-unauthenticated \

@@ -18,7 +18,7 @@ gcloud container clusters get-credentials <your cluster name> --internal-ip --pr
 
 Antes de comenzar crea las varibles de entorno
 
-````Bash
+````bash
 export PROJECT_ID=$(gcloud config get-value project)
 export REGION="europe-west4"
 export ZONE="europe-west4-a"
@@ -30,7 +30,7 @@ Debes crear un rol personalizado de IAM llamado ``orca_storage_editor_323`` con 
 
 Ejecuta el siguiente comando en tu Cloud Shell:
 
-````Bash
+````bash
 gcloud iam roles create orca_storage_editor_323 \
     --project=gcp-04-8bbca537b1fd \
     --title="Orca Storage Editor" \
@@ -44,7 +44,7 @@ gcloud iam roles create orca_storage_editor_323 \
 Crea la cuenta de servicio dedicada llamada orca-private-cluster-691-sa.
 
 
-````Bash
+````bash
 gcloud iam service-accounts create orca-private-cluster-691-sa \
     --display-name="Orca Private Cluster Service Account"
 ````
@@ -53,7 +53,7 @@ gcloud iam service-accounts create orca-private-cluster-691-sa \
 
 Asigna los 3 roles integrados requeridos por GKE más el rol personalizado que creaste en la Tarea 1 a la cuenta de servicio recién creada.
 
-````Bash
+````bash
 # 1. Vincular Monitoring Viewer
 gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:orca-private-cluster-691-sa@$PROJECT_ID.iam.gserviceaccount.com" \
@@ -80,7 +80,7 @@ gcloud projects add-iam-policy-binding $PROJECT_ID \
 Para configurar la red autorizada, primero necesitamos averiguar la IP interna de la máquina virtual orca-jumphost. Consíguela ejecutando:
 
 
-````Bash
+````bash
 export JUMPHOST_IP=$(gcloud compute instances describe orca-jumphost \
     --zone=$ZONE \
     --format='get(networkInterfaces[0].networkIP)')
@@ -91,7 +91,7 @@ echo "La IP interna de orca-jumphost es: $JUMPHOST_IP"
 Ahora, crea el clúster privado ``orca-cluster-825`` cumpliendo con todas las condiciones de seguridad solicitadas (el comando usa la máscara ``/32`` sugerida para la IP del jumphost):
 
 
-````Bash
+````bash
 gcloud container clusters create orca-cluster-825 \
     --zone=$ZONE \
     --num-nodes=1 \
@@ -117,7 +117,7 @@ En la consola de Google Cloud, ve a Compute Engine > VM Instances, busca orca-ju
 
 Alternativamente, si usas la terminal con gcloud, puedes acceder mediante:
 
-````Bash
+````bash
 gcloud compute ssh orca-jumphost --zone=europe-west4-a
 ````
 
@@ -126,7 +126,7 @@ gcloud compute ssh orca-jumphost --zone=europe-west4-a
 Una vez dentro de la terminal de la máquina orca-jumphost, define el ID de tu proyecto (reemplaza <TU_PROJECT_ID> por el ID real del laboratorio):
 
 
-````Bash
+````bash
 export PROJECT_ID=gcp-04-8bbca537b1fd
 export ZONE="europe-west4-a"
 ````
@@ -135,7 +135,7 @@ export ZONE="europe-west4-a"
 
 Ejecuta los comandos de la Sugerencia 1 para preparar kubectl:
 
-````Bash
+````bash
 sudo apt-get update && sudo apt-get install google-cloud-sdk-gke-gcloud-auth-plugin -y
 echo "export USE_GKE_GCLOUD_AUTH_PLUGIN=True" >> ~/.bashrc
 source ~/.bashrc
@@ -148,12 +148,12 @@ gcloud container clusters get-credentials orca-cluster-825 --internal-ip --proje
 
 Crea el despliegue de la aplicación de muestra:
 
-````Bash
+````bash
 kubectl create deployment hello-server --image=gcr.io/google-samples/hello-app:1.0
 ````
 
 Para verificar que todo se haya creado correctamente y asegurar la puntuación de la tarea, puedes ejecutar:
 
-````Bash
+````bash
 kubectl get deployments
 ````
