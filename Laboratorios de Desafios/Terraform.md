@@ -1,4 +1,4 @@
-## Laboratorio de Dasafío - Crea una infraestructura con Terraform 
+## Laboratorio de Dasafío - Crea una infraestructura con Terraform - GSP345
 
 ### Tarea 1. Crea los archivos de configuración
 
