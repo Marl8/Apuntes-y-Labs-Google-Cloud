@@ -43,7 +43,7 @@ En esta tarea vas a compilar el código de la API de facturación de pruebas (st
 
 ````bash
 cd ~/pet-theory/lab07/unit-api-billing
-  ````  
+````  
 
 - Compila la imagen usando Cloud Build:
 
