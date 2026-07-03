@@ -20,7 +20,7 @@ Esta es la presentación principal. Puedes encontrar el contenido detallado aqu�
 
 ### Laboratorios de Desafío Google Cloud Architect Certification Path
 
-* [**Ir a Desafío Cloud Run**](./Laboratorios-de-Desafios/Cloud%20Run.md)
+* [**Ir a Desafío Cloud Run**](./Laboratorios-de-Desafios/Cloud-Run.md)
 * [**Ir a Desafío Google Kurbernetes Engine - GKE**](./Laboratorios-de-Desafios/GKE.md)
 * [**Ir a Desafío Red segura en GCP**](./Laboratorios-de-Desafios/Red-segura-en-GCP.md)
 * [**Ir a Desafío Seguridad en la nube**](./Laboratorios-de-Desafios/Seguridad-en-la-nube.md)
