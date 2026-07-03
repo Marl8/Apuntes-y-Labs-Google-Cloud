@@ -22,7 +22,7 @@ Esta es la presentación principal. Puedes encontrar el contenido detallado aqu�
 
 * [**Ir a Desafío Cloud Run**](./Laboratorios%20de%20Desafios/Cloud%20Run.md)
 * [**Ir a Desafío Google Kurbernetes Engine - GKE**](./Laboratorios%20de%20Desafios/GKE.md)
-* [**Ir a Desafío Red segura en GCP**](./Laboratorios%20de%20Desafios/Red%20segura%20en%20GCP.md)
-* [**Ir a Desafío Seguridad en la nube**](./Laboratorios%20de%20Desafios/Seguridad%20en%20la%20nube.md)
+* [**Ir a Desafío Red segura en GCP**](./Laboratorios%20de%20Desafios/Red-segura-en-GCP.md)
+* [**Ir a Desafío Seguridad en la nube**](./Laboratorios%20de%20Desafios/Seguridad-en-la-nube.md)
 * [**Ir a Desafío Terraform**](./Laboratorios%20de%20Desafios/Terraform.md)
 * [**Ir a Desafío Load Balancer**](./Laboratorios%20de%20Desafios/load-balancer.md)
